@@ -4,79 +4,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CarbCare V2.1</title>
-<meta name="theme-color" content="#167e88">
+<meta name="theme-color" content="#087e88">
+<title>CarbCare V2.2</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f2f7f7;color:#213f43;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
-header{background:#fff;text-align:center;padding:22px 12px;border-bottom:1px solid #dce8e8}
-header h1{color:#167e88;margin:0;font-size:30px}
-header small{color:#71878a}
-main{max-width:760px;margin:auto;padding:14px}
-nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
-button{font:inherit;background:white;color:#176e78;border:1px solid #cbdedf;border-radius:11px;padding:11px;cursor:pointer}
+body{margin:0;background:#f2f7f7;color:#214146;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+header{background:white;text-align:center;padding:20px;border-bottom:1px solid #dce8e8}
+header h1{margin:0;color:#087e88;font-size:29px}
+header small{color:#698287}
+main{max-width:760px;margin:auto;padding:13px 13px 70px}
+nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+button{font:inherit;background:white;border:1px solid #cbdedf;border-radius:11px;padding:10px;color:#176e78;cursor:pointer}
 nav button{font-size:13px}
-button.active,.primary{background:#167e88;color:white;border-color:#167e88}
-section{background:white;border:1px solid #e1ebeb;border-radius:18px;padding:18px;margin-bottom:12px}
+button.active,.primary{background:#087e88;color:white;border-color:#087e88}
+button:disabled{opacity:.5}
+section{background:white;border:1px solid #e1ebeb;border-radius:17px;padding:17px;margin-bottom:12px}
 section[hidden]{display:none}
-h2{margin:0 0 15px;font-size:22px}
-h3{font-size:17px;margin-top:24px}
-label{display:block;font-weight:600;margin:15px 0 7px}
-input,textarea,select{width:100%;padding:13px;border:1px solid #cbdedf;border-radius:11px;font:inherit;background:white;color:#213f43}
-textarea{min-height:120px}
-.full{width:100%;margin-top:13px}
-.hint{font-size:13px;color:#71878a;line-height:1.6}
-.notice{background:#fff3d9;padding:12px;border-radius:11px;font-size:12px;line-height:1.5;margin-bottom:13px}
-.card{border:1px solid #e1ebeb;border-radius:13px;padding:13px;margin:10px 0}
-.item{padding:12px 0;border-bottom:1px solid #edf1f1;display:flex;align-items:center;justify-content:space-between;gap:8px}
+h2{font-size:21px;margin:0 0 13px}
+h3{font-size:17px;margin:22px 0 10px}
+label{display:block;font-weight:600;font-size:13px;margin:14px 0 6px}
+input,textarea,select{font:inherit;width:100%;padding:12px;border:1px solid #cbdedf;border-radius:10px;background:white;color:#214146}
+textarea{min-height:110px}
+.full{width:100%;margin-top:12px}
+.hint{font-size:13px;color:#698287;line-height:1.5}
+.notice{background:#fff3d9;padding:12px;border-radius:10px;font-size:12px;line-height:1.5;margin-bottom:12px}
+.card{border:1px solid #e1ebeb;border-radius:12px;padding:13px;margin:9px 0}
+.item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 0;border-bottom:1px solid #edf1f1}
 .item>div:first-child{flex:1;min-width:0}
-.item small{display:block;color:#71878a;margin-top:5px;font-size:12px}
-.item button{font-size:12px;padding:8px;flex-shrink:0}
-.summary{background:#e5f3f2;border-radius:13px;padding:17px;margin:15px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.summary strong{font-size:25px;color:#167e88}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.error{color:#a33333}
-footer{text-align:center;color:#71878a;font-size:11px;padding:20px}
+.item small{display:block;color:#698287;font-size:12px;margin-top:4px}
+.item button{font-size:12px;padding:8px;white-space:nowrap}
+.summary{background:#e5f3f2;padding:16px;border-radius:12px;margin:13px 0;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.summary strong{font-size:23px;color:#087e88}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.progress{height:9px;background:#e4eeee;border-radius:10px;overflow:hidden;margin:9px 0}
+.progress div{height:100%;background:#087e88}
+svg.graph{width:100%;height:170px;border:1px solid #e1ebeb;border-radius:10px}
+footer{text-align:center;color:#698287;font-size:11px;padding:15px}
 </style>
 </head>
 <body>
 <header>
 <h1>♡ CarbCare</h1>
-<small>Seu cuidado, com clareza · V2.1</small>
+<small>Seu cuidado, com clareza · V2.2</small>
 </header>
 <main>
 <div class="notice">
-<b>Versão experimental.</b> A biblioteca usa valores ilustrativos. O cálculo de bolus é somente uma simulação matemática com dados fictícios, não uma orientação para aplicação de insulina.
+<b>Versão experimental.</b> Valores nutricionais ilustrativos. Use apenas dados fictícios nos testes. A calculadora de bolus não é uma ferramenta de prescrição.
 </div>
 <nav>
-<button class="active" onclick="tab('dia',this)">Meu dia</button>
-<button onclick="tab('voz',this)">Falar refeição</button>
-<button onclick="tab('biblioteca',this)">Biblioteca</button>
-<button onclick="tab('dicas',this)">Dicas</button>
-<button onclick="tab('bolus',this)">Bolus</button>
-<button onclick="tab('historico',this)">Histórico</button>
+<button class="active" onclick="aba('dia',this)">Meu dia</button>
+<button onclick="aba('voz',this)">Falar refeição</button>
+<button onclick="aba('biblioteca',this)">Biblioteca</button>
+<button onclick="aba('metas',this)">Metas</button>
+<button onclick="aba('dicas',this)">Dicas</button>
+<button onclick="aba('bolus',this)">Bolus</button>
+<button onclick="aba('historico',this)">Histórico</button>
+<button onclick="aba('perfis',this)">Perfis</button>
 </nav>
 
 <section id="dia">
 <h2>Meu dia</h2>
 <label>Data</label>
 <input type="date" id="data" onchange="mostrarDia()">
-<div class="summary"><span>Carboidratos do dia</span><strong id="totalDia">0 g</strong></div>
+<div class="summary"><span>Carboidratos</span><strong id="totalDia">0 g</strong></div>
+<div class="summary"><span>Calorias conhecidas</span><strong id="caloriasDia">—</strong></div>
+<p class="hint" id="avisoCalorias"></p>
 <div id="refeicoes"></div>
-<h3>Glicemia de teste</h3>
+<h3>Glicemia fictícia</h3>
 <div class="grid">
 <input type="number" id="glicemia" placeholder="mg/dL">
 <input type="time" id="horaGlicemia">
 </div>
-<button class="full" onclick="salvarGlicemia()">Registrar glicemia</button>
+<button class="full" onclick="salvarGlicemia()">Registrar</button>
 <div id="listaGlicemia"></div>
+<h3>Gráfico de glicemia</h3>
+<div id="graficoGlicemia"></div>
 </section>
 
 <section id="voz" hidden>
 <h2>Fale sua refeição inteira</h2>
-<p class="hint">Toque no campo e use o microfone do teclado do iPhone. Exemplo: “Comi três colheres de arroz, 100 gramas de frango, uma porção de purê de batata, uma maçã e um copo de suco de uva”.</p>
+<p class="hint">Use o microfone do teclado do iPhone. Exemplo: “Comi três colheres de arroz, 100 gramas de frango, uma porção de purê de batata, uma maçã e um copo de suco de uva”.</p>
 <label>O que você comeu?</label>
-<textarea id="fala" placeholder="Dite ou escreva aqui..."></textarea>
+<textarea id="fala" placeholder="Dite ou escreva sua refeição..."></textarea>
 <label>Refeição</label>
 <select id="tipo"></select>
 <button class="primary full" onclick="interpretar()">Interpretar refeição</button>
@@ -87,37 +96,47 @@ footer{text-align:center;color:#71878a;font-size:11px;padding:20px}
 
 <section id="biblioteca" hidden>
 <h2>Biblioteca alimentar</h2>
-<p class="hint">Alimentos de demonstração, com valores aproximados por 100 g ou 100 ml. Uma futura versão terá fontes nutricionais verificadas e medidas caseiras específicas.</p>
-<input id="busca" placeholder="Buscar arroz, macaxeira, suco..." oninput="mostrarBiblioteca()">
+<p class="hint">Valores aproximados para demonstração, ainda sem validação nutricional individual. As calorias não informadas serão exibidas como pendentes.</p>
+<input id="busca" placeholder="Buscar alimento..." oninput="mostrarBiblioteca()">
 <div id="listaAlimentos"></div>
-<h3>Adicionar alimento personalizado</h3>
+<h3>Cadastrar alimento</h3>
 <label>Nome</label>
-<input id="novoNome" placeholder="Nome do alimento">
+<input id="novoNome">
 <label>Carboidratos por 100 g ou ml</label>
-<input id="novoCarb" type="number" step="0.1" min="0">
+<input id="novoCarb" type="number" min="0" step="0.1">
+<label>Calorias por 100 g ou ml (opcional)</label>
+<input id="novoKcal" type="number" min="0" step="0.1">
 <label>Unidade</label>
 <select id="novaUnidade"><option>g</option><option>ml</option></select>
-<button class="full" onclick="cadastrar()">Cadastrar alimento</button>
+<button class="full" onclick="cadastrar()">Cadastrar</button>
+</section>
+
+<section id="metas" hidden>
+<h2>Metas de carboidratos</h2>
+<p class="hint">Configure metas fictícias de acompanhamento para cada refeição. Não são recomendações nutricionais.</p>
+<label><input id="ativarMetas" type="checkbox" style="width:auto"> Ativar metas</label>
+<div id="camposMetas"></div>
+<button class="primary full" onclick="salvarMetas()">Salvar metas</button>
 </section>
 
 <section id="dicas" hidden>
 <h2>Dicas e orientações</h2>
-<h3>Como registrar uma refeição</h3>
-<p>Dite a refeição completa, confira cada alimento e ajuste as quantidades antes de salvar.</p>
-<h3>Medidas caseiras</h3>
-<p>Colheres, copos, conchas e fatias não têm peso universal. O CarbCare usa estimativas iniciais que devem ser conferidas.</p>
 <h3>Contagem de carboidratos</h3>
-<p>O teor de carboidratos depende do alimento, da preparação e da quantidade consumida. Prefira informações nutricionais verificadas.</p>
-<h3>Leitura de rótulos</h3>
-<p>Confira se os carboidratos declarados correspondem a uma porção ou a 100 g do produto.</p>
+<p>Considere o alimento, a preparação e a quantidade consumida. Confirme os valores em fontes nutricionais adequadas.</p>
+<h3>Medidas caseiras</h3>
+<p>Colheres, conchas, fatias e copos têm pesos variáveis. As conversões automáticas deste protótipo são apenas estimativas.</p>
+<h3>Entrada por voz</h3>
+<p>Dite a refeição completa, confira os alimentos reconhecidos e ajuste as quantidades antes de salvar.</p>
+<h3>Rótulos</h3>
+<p>Confira se o valor informado corresponde à porção indicada ou a 100 g do produto.</p>
 <h3>Glicemia e insulina</h3>
-<p>As relações insulina/carboidrato, metas glicêmicas e fatores de sensibilidade são individuais. O módulo experimental não considera insulina ativa nem possui validação clínica.</p>
+<p>Os parâmetros de insulinoterapia são individuais. A calculadora experimental não considera insulina ativa nem dispõe de validação clínica.</p>
 </section>
 
 <section id="bolus" hidden>
-<h2>Bolus — simulação</h2>
-<div class="notice">Use somente números fictícios para verificar a matemática. Não utilize o resultado para definir uma dose real.</div>
-<label>Meta glicêmica fictícia (mg/dL)</label>
+<h2>Bolus — simulação matemática</h2>
+<div class="notice">Somente para cenários fictícios. Não usar para calcular insulina real.</div>
+<label>Meta fictícia (mg/dL)</label>
 <input id="meta" type="number" value="100">
 <label>Sensibilidade fictícia (mg/dL/U)</label>
 <input id="sensibilidade" type="number" value="50">
@@ -127,35 +146,45 @@ footer{text-align:center;color:#71878a;font-size:11px;padding:20px}
 <input id="glicemiaSim" type="number" value="123">
 <label>Carboidratos fictícios (g)</label>
 <input id="carbSim" type="number" value="35">
-<button class="primary full" onclick="simular()">Executar teste matemático</button>
+<button class="primary full" onclick="simular()">Executar teste</button>
 <div class="card" id="resultadoBolus">Aguardando simulação.</div>
-<p class="hint">Faltam regras para insulina ativa, correção negativa, limites, arredondamento, configuração por horário e validação clínica.</p>
 </section>
 
 <section id="historico" hidden>
 <h2>Histórico</h2>
 <div id="listaHistorico"></div>
+<h3>Carboidratos dos últimos 7 dias</h3>
+<div id="graficoSemana"></div>
 <button class="full" onclick="exportar()">Exportar CSV</button>
+</section>
+
+<section id="perfis" hidden>
+<h2>Perfis de teste</h2>
+<p class="hint">Use apelidos fictícios. Os registros ficam apenas neste navegador, sem proteção para dados de saúde.</p>
+<label>Perfil ativo</label>
+<select id="perfilAtivo" onchange="trocarPerfil()"></select>
+<label>Novo perfil</label>
+<input id="novoPerfil" placeholder="Ex.: Teste A">
+<button class="full" onclick="criarPerfil()">Criar perfil</button>
 <button class="full" onclick="apagar()">Apagar dados de teste</button>
 </section>
-<footer>CarbCare V2.1 · Protótipo experimental</footer>
+<footer>CarbCare V2.2 · Protótipo experimental</footer>
 </main>
 
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
 const nomes=["Café da manhã","Lanche da manhã","Almoço","Lanche da tarde","Jantar","Ceia"];
-const fmt=n=>Number(n||0).toLocaleString("pt-BR",{maximumFractionDigits:1,minimumFractionDigits:1});
+const fmt=n=>Number(n||0).toLocaleString("pt-BR",{minimumFractionDigits:1,maximumFractionDigits:1});
 const norm=s=>String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\w\s]/g," ").replace(/\s+/g," ").trim();
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const ler=(k,d)=>{try{return JSON.parse(localStorage.getItem("cc21_"+k))||d}catch{return d}};
-const gravar=(k,v)=>localStorage.setItem("cc21_"+k,JSON.stringify(v));
-
+const ler=(k,d)=>{try{return JSON.parse(localStorage.getItem("cc22_"+k))??d}catch{return d}};
+const gravar=(k,v)=>localStorage.setItem("cc22_"+k,JSON.stringify(v));
 const dados=[
 ["Arroz branco cozido",28.1,"g","arroz"],
-["Arroz integral cozido",25.8,"g","arroz integral"],
-["Feijão carioca cozido",13.6,"g","feijao"],
-["Feijão preto cozido",14,"g","feijao preto"],
+["Arroz integral",25.8,"g","arroz integral"],
+["Feijão carioca",13.6,"g","feijao"],
+["Feijão preto",14,"g","feijao preto"],
 ["Macarrão cozido",30,"g","macarrao,massa"],
 ["Purê de batata",16,"g","pure"],
 ["Batata cozida",12,"g","batata"],
@@ -217,78 +246,73 @@ const dados=[
 ["Inhame cozido",27,"g","inhame"],
 ["Abóbora cozida",8,"g","abobora"],
 ["Pipoca",70,"g","pipoca"],
-["Cachorro-quente",26,"g","cachorro quente"],
 ["Pão de queijo",40,"g","pao de queijo"],
 ["Coxinha",30,"g","coxinha"],
 ["Pastel",38,"g","pastel"],
 ["Sorvete",24,"g","sorvete"],
 ["Pudim",32,"g","pudim"]
 ];
-
 let extras=ler("extras",[]);
 let registros=ler("registros",[]);
 let glicemias=ler("glicemias",[]);
+let perfis=ler("perfis",["Teste A"]);
+let perfil=ler("perfil","Teste A");
 let rascunho=[];
-
-function alimentos(){
-return [...dados,...extras].map((a,i)=>({
-id:i,nome:a[0],carb:a[1],unidade:a[2],
+const alimentos=()=>[...dados.map(a=>[...a,null]),...extras].map((a,i)=>({
+id:i,nome:a[0],carb:a[1],unidade:a[2],kcal:a[4],
 termos:[a[0],...String(a[3]||"").split(",")].map(norm)
 }));
+function hoje(){
+let d=new Date();
+return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
-function tab(id,btn){
+$("data").value=hoje();
+$("horaGlicemia").value=new Date().toTimeString().slice(0,5);
+$("tipo").innerHTML=nomes.map(n=>`<option>${n}</option>`).join("");
+function aba(id,btn){
 document.querySelectorAll("section").forEach(s=>s.hidden=s.id!==id);
 document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
 if(btn)btn.classList.add("active");
 if(id==="biblioteca")mostrarBiblioteca();
+if(id==="metas")mostrarMetas();
 if(id==="historico")mostrarHistorico();
 if(id==="dia")mostrarDia();
+if(id==="perfis")mostrarPerfis();
 window.scrollTo(0,0);
 }
 function abrir(id){
-const b=[...document.querySelectorAll("nav button")].find(x=>x.getAttribute("onclick").includes("'"+id+"'"));
-tab(id,b);
+let b=[...document.querySelectorAll("nav button")].find(x=>x.getAttribute("onclick").includes("'"+id+"'"));
+aba(id,b);
 }
-function dataHoje(){
-let d=new Date();
-return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-}
-$("data").value=dataHoje();
-$("horaGlicemia").value=new Date().toTimeString().slice(0,5);
-$("tipo").innerHTML=nomes.map(n=>`<option>${n}</option>`).join("");
-
 function mostrarBiblioteca(){
 let q=norm($("busca").value);
 let lista=alimentos().filter(a=>!q||a.termos.some(t=>t.includes(q)));
 $("listaAlimentos").innerHTML=lista.map(a=>`
-<div class="item">
-<div><b>${esc(a.nome)}</b><small>${fmt(a.carb)} g carboidratos / 100 ${a.unidade}</small></div>
-<button onclick="adicionarManual(${a.id})">Adicionar</button>
-</div>`).join("")||"<p>Nenhum alimento encontrado.</p>";
+<div class="item"><div><b>${esc(a.nome)}</b>
+<small>${fmt(a.carb)} g carboidratos / 100 ${a.unidade}</small>
+<small>${a.kcal===null?"Calorias pendentes":fmt(a.kcal)+" kcal / 100 "+a.unidade}</small></div>
+<button onclick="adicionarManual(${a.id})">Adicionar</button></div>`).join("")||"<p>Nenhum alimento encontrado.</p>";
 }
 function adicionarManual(id){
 let a=alimentos()[id];
-let x=prompt("Quantidade de "+a.nome+" em "+a.unidade,"100");
+let x=prompt("Quantidade em "+a.unidade,"100");
 if(x===null)return;
 let q=Number(x.replace(",","."));
 if(!Number.isFinite(q)||q<=0)return alert("Quantidade inválida.");
 rascunho.push({...a,q,estimado:false});
-mostrarRascunho();
-abrir("voz");
+mostrarRascunho();abrir("voz");
 }
 function cadastrar(){
-let nome=$("novoNome").value.trim();
-let carb=Number($("novoCarb").value);
-if(!nome||$("novoCarb").value===""||!Number.isFinite(carb)||carb<0||carb>100)return alert("Confira os dados.");
-extras.push([nome,carb,$("novaUnidade").value,""]);
+let nome=$("novoNome").value.trim(),c=Number($("novoCarb").value);
+let k=$("novoKcal").value===""?null:Number($("novoKcal").value);
+if(!nome||$("novoCarb").value===""||!Number.isFinite(c)||c<0||c>100||k!==null&&(!Number.isFinite(k)||k<0||k>1000))return alert("Confira os dados.");
+extras.push([nome,c,$("novaUnidade").value,"",k]);
 gravar("extras",extras);
-$("novoNome").value="";
-$("novoCarb").value="";
+$("novoNome").value="";$("novoCarb").value="";$("novoKcal").value="";
 mostrarBiblioteca();
 }
-
 const numeros={um:1,uma:1,dois:2,duas:2,tres:3,quatro:4,cinco:5,seis:6,meio:.5,meia:.5};
-function quantidade(texto,unidade){
+function quantidade(texto){
 let t=norm(texto);
 let peso=t.match(/(\d+(?:[.,]\d+)?)\s*(kg|gramas?|g|ml|mililitros?|litros?|l)\b/);
 if(peso){
@@ -304,39 +328,28 @@ else if(/\bconcha/.test(t))base=100;
 else if(/\bfatia/.test(t))base=30;
 else if(/\bxicara/.test(t))base=160;
 else if(/\bcopo/.test(t))base=200;
-else if(/\bporo?cao/.test(t))base=100;
 return {q:n*base,estimado:true};
 }
 function interpretar(){
 let texto=norm($("fala").value);
 if(!texto)return alert("Dite uma refeição.");
 let achados=[];
-for(let a of alimentos()){
-for(let termo of a.termos){
+for(let a of alimentos())for(let termo of a.termos){
 if(termo.length<3)continue;
 let inicio=0,pos;
 while((pos=texto.indexOf(termo,inicio))>=0){
-let antes=pos===0?" ":texto[pos-1];
-let depois=texto[pos+termo.length]||" ";
-if(antes===" "&&depois===" ")
-achados.push({a,inicio:pos,fim:pos+termo.length,tamanho:termo.length});
+let antes=pos===0?" ":texto[pos-1],depois=texto[pos+termo.length]||" ";
+if(antes===" "&&depois===" ")achados.push({a,inicio:pos,fim:pos+termo.length,tamanho:termo.length});
 inicio=pos+termo.length;
-}
-}
-}
+}}
 achados.sort((a,b)=>b.tamanho-a.tamanho);
 let escolhidos=[];
-for(let a of achados){
-if(!escolhidos.some(b=>a.inicio<b.fim&&a.fim>b.inicio))
-escolhidos.push(a);
-}
+for(let a of achados)if(!escolhidos.some(b=>a.inicio<b.fim&&a.fim>b.inicio))escolhidos.push(a);
 escolhidos.sort((a,b)=>a.inicio-b.inicio);
 rascunho=[];
 for(let i=0;i<escolhidos.length;i++){
-let a=escolhidos[i];
-let anterior=i?escolhidos[i-1].fim:0;
-let trecho=texto.slice(anterior,a.fim);
-let quant=quantidade(trecho,a.a.unidade);
+let a=escolhidos[i],anterior=i?escolhidos[i-1].fim:0;
+let quant=quantidade(texto.slice(anterior,a.fim));
 rascunho.push({...a.a,...quant});
 }
 mostrarRascunho();
@@ -346,19 +359,17 @@ function mostrarRascunho(){
 let total=0;
 $("resultado").innerHTML=rascunho.map((a,i)=>{
 let carb=a.q*a.carb/100;total+=carb;
-return `<div class="item">
-<div><b>${esc(a.nome)}</b>
-<small>${fmt(a.q)} ${a.unidade} · ${fmt(carb)} g carboidratos
-${a.estimado?"· quantidade presumida: confira":""}</small></div>
+let kcal=a.kcal===null?null:a.q*a.kcal/100;
+return `<div class="item"><div><b>${esc(a.nome)}</b>
+<small>${fmt(a.q)} ${a.unidade} · ${fmt(carb)} g carboidratos</small>
+<small>${kcal===null?"Calorias pendentes":fmt(kcal)+" kcal"}${a.estimado?" · Porção presumida":""}</small></div>
 <button onclick="editar(${i})">Editar</button>
-<button onclick="remover(${i})">×</button>
-</div>`;
+<button onclick="remover(${i})">×</button></div>`;
 }).join("");
 $("totalVoz").textContent=fmt(total)+" g";
 }
 function editar(i){
-let a=rascunho[i];
-let x=prompt("Quantidade em "+a.unidade,a.q);
+let a=rascunho[i],x=prompt("Quantidade em "+a.unidade,a.q);
 if(x===null)return;
 let q=Number(x.replace(",","."));
 if(!Number.isFinite(q)||q<=0)return alert("Quantidade inválida.");
@@ -368,83 +379,138 @@ function remover(i){rascunho.splice(i,1);mostrarRascunho()}
 function salvarRefeicao(){
 if(!rascunho.length)return alert("Nenhum alimento para salvar.");
 if(rascunho.some(a=>a.estimado)&&!confirm("Existem quantidades presumidas. Você conferiu todas?"))return;
-let itens=rascunho.map(a=>({nome:a.nome,q:a.q,unidade:a.unidade,carb:a.q*a.carb/100}));
-registros.unshift({data:$("data").value,tipo:$("tipo").value,itens});
+let itens=rascunho.map(a=>({nome:a.nome,q:a.q,unidade:a.unidade,carb:a.q*a.carb/100,kcal:a.kcal===null?null:a.q*a.kcal/100}));
+registros.unshift({perfil,data:$("data").value,tipo:$("tipo").value,itens});
 gravar("registros",registros);
 rascunho=[];$("fala").value="";
 mostrarRascunho();abrir("dia");
 alert("Refeição de teste salva.");
 }
+function metasAtuais(){return ler("metas_"+perfil,{ativo:false,valores:{}})}
+function mostrarMetas(){
+let m=metasAtuais();
+$("ativarMetas").checked=m.ativo;
+$("camposMetas").innerHTML=nomes.map((n,i)=>`
+<label>${n} (g)</label><input type="number" min="0" max="1000" step="1" id="meta_${i}" value="${m.valores[n]??0}">`).join("");
+}
+function salvarMetas(){
+let valores={};
+for(let i=0;i<nomes.length;i++){
+let el=$("meta_"+i),v=Number(el.value);
+if(el.value===""||!Number.isFinite(v)||v<0||v>1000)return alert("Revise as metas.");
+valores[nomes[i]]=v;
+}
+gravar("metas_"+perfil,{ativo:$("ativarMetas").checked,valores});
+mostrarDia();alert("Metas salvas.");
+}
 function mostrarDia(){
 let data=$("data").value;
-let lista=registros.filter(r=>r.data===data);
-let total=lista.reduce((s,r)=>s+r.itens.reduce((x,a)=>x+a.carb,0),0);
+let lista=registros.filter(r=>r.perfil===perfil&&r.data===data);
+let todos=lista.flatMap(r=>r.itens);
+let total=todos.reduce((s,a)=>s+a.carb,0);
+let conhecidos=todos.filter(a=>a.kcal!==null);
 $("totalDia").textContent=fmt(total)+" g";
+$("caloriasDia").textContent=conhecidos.length?fmt(conhecidos.reduce((s,a)=>s+a.kcal,0))+" kcal":"—";
+$("avisoCalorias").textContent=conhecidos.length===todos.length&&todos.length?"Todos os itens possuem calorias cadastradas.":"Calorias parciais: "+conhecidos.length+" de "+todos.length+" itens possuem dados.";
+let metas=metasAtuais();
 $("refeicoes").innerHTML=nomes.map(nome=>{
 let rs=lista.filter(r=>r.tipo===nome);
-let soma=rs.reduce((s,r)=>s+r.itens.reduce((x,a)=>x+a.carb,0),0);
-return `<div class="card">
-<div class="item"><b>${nome}</b><button onclick="novaRefeicao('${nome}')">+ Adicionar</button></div>
-<small>${fmt(soma)} g carboidratos</small>
-${rs.map(r=>`<p class="hint">${r.itens.map(a=>esc(a.nome)).join(", ")}</p>`).join("")}
+let itens=rs.flatMap(r=>r.itens);
+let soma=itens.reduce((s,a)=>s+a.carb,0);
+let kcal=itens.some(a=>a.kcal===null)?null:itens.reduce((s,a)=>s+a.kcal,0);
+let alvo=metas.ativo?Number(metas.valores[nome]||0):0;
+return `<div class="card"><div class="item"><b>${nome}</b>
+<button onclick="novaRefeicao('${nome}')">+ Adicionar</button></div>
+<small>${fmt(soma)} g carboidratos${alvo?" / meta "+fmt(alvo)+" g":""}</small>
+${alvo?`<div class="progress"><div style="width:${Math.min(100,soma/alvo*100)}%"></div></div>`:""}
+<p class="hint">Calorias: ${kcal===null?"dados incompletos":fmt(kcal)+" kcal"}</p>
+${rs.map(r=>`<p class="hint">${r.itens.map(a=>esc(a.nome)+" ("+fmt(a.q)+" "+a.unidade+")").join(", ")}</p>`).join("")}
 </div>`;
 }).join("");
-$("listaGlicemia").innerHTML=glicemias.filter(g=>g.data===data).map(g=>`
-<div class="item"><span>${g.hora}</span><b>${fmt(g.valor)} mg/dL</b></div>`).join("");
+let gs=glicemias.filter(g=>g.perfil===perfil&&g.data===data).sort((a,b)=>a.hora.localeCompare(b.hora));
+$("listaGlicemia").innerHTML=gs.map(g=>`<div class="item"><span>${g.hora}</span><b>${fmt(g.valor)} mg/dL</b></div>`).join("");
+$("graficoGlicemia").innerHTML=grafico(gs.map(g=>({rotulo:g.hora,valor:g.valor})),"Glicemias fictícias");
 }
 function novaRefeicao(nome){$("tipo").value=nome;abrir("voz")}
 function salvarGlicemia(){
-let valor=Number($("glicemia").value);
-if($("glicemia").value===""||!Number.isFinite(valor)||valor<0)return alert("Valor inválido.");
-glicemias.push({data:$("data").value,hora:$("horaGlicemia").value,valor});
+let el=$("glicemia"),valor=Number(el.value);
+if(el.value===""||!Number.isFinite(valor)||valor<0||valor>1000)return alert("Valor inválido.");
+glicemias.push({perfil,data:$("data").value,hora:$("horaGlicemia").value,valor});
 gravar("glicemias",glicemias);
-$("glicemia").value="";
-mostrarDia();
+el.value="";mostrarDia();
+}
+function grafico(pontos,titulo){
+if(!pontos.length)return '<p class="hint">Sem registros para o gráfico.</p>';
+let max=Math.max(100,...pontos.map(p=>p.valor));
+let largura=340/pontos.length;
+return `<svg class="graph" viewBox="0 0 360 170" role="img" aria-label="${esc(titulo)}">
+<line x1="10" y1="125" x2="350" y2="125" stroke="#aac2c2"/>
+${pontos.map((p,i)=>{
+let h=p.valor/max*105,x=12+i*largura,w=Math.max(4,largura*.55);
+return `<rect x="${x}" y="${125-h}" width="${w}" height="${h}" rx="3" fill="#087e88"/>
+<text x="${x+w/2}" y="144" text-anchor="middle" font-size="10">${esc(p.rotulo)}</text>
+<text x="${x+w/2}" y="${Math.max(10,120-h)}" text-anchor="middle" font-size="10">${fmt(p.valor)}</text>`;
+}).join("")}</svg>`;
 }
 function simular(){
-let meta=Number($("meta").value);
-let f=Number($("sensibilidade").value);
-let r=Number($("relacao").value);
-let g=Number($("glicemiaSim").value);
-let c=Number($("carbSim").value);
-if([meta,f,r,g,c].some(x=>!Number.isFinite(x))||meta<=0||f<=0||r<=0||g<0||c<0)
-return alert("Confira os valores fictícios.");
-let alimento=c/r;
-let correcao=(g-meta)/f;
-let soma=alimento+correcao;
-$("resultadoBolus").innerHTML=`
-<b>Teste matemático — não é orientação de dose</b>
+let ids=["meta","sensibilidade","relacao","glicemiaSim","carbSim"];
+let v=ids.map(id=>Number($(id).value));
+if(ids.some(id=>$(id).value==="")||v.some(x=>!Number.isFinite(x))||v[0]<=0||v[1]<=0||v[2]<=0||v[3]<0||v[4]<0)return alert("Confira os valores fictícios.");
+let alimento=v[4]/v[2],correcao=(v[3]-v[0])/v[1];
+$("resultadoBolus").innerHTML=`<b>Teste matemático, não orientação de dose</b>
 <p>Parcela alimentar: ${fmt(alimento)} unidades matemáticas</p>
-<p>Parcela de correção: ${fmt(correcao)} unidades matemáticas</p>
-<p><b>Soma algébrica: ${fmt(soma)} unidades matemáticas</b></p>
-<p class="error">Não usar para aplicação de insulina. Insulina ativa e regras clínicas não implementadas.</p>`;
+<p>Correção algébrica: ${fmt(correcao)} unidades matemáticas</p>
+<p><b>Soma: ${fmt(alimento+correcao)} unidades matemáticas</b></p>
+<p class="hint">Sem insulina ativa, regras para glicemia baixa ou validação clínica. Não utilizar para aplicação.</p>`;
 }
 function mostrarHistorico(){
-$("listaHistorico").innerHTML=registros.map(r=>{
+let lista=registros.filter(r=>r.perfil===perfil);
+$("listaHistorico").innerHTML=lista.map(r=>{
 let total=r.itens.reduce((s,a)=>s+a.carb,0);
 return `<div class="card"><b>${esc(r.tipo)} · ${r.data}</b>
-<p class="hint">${r.itens.map(a=>esc(a.nome)+" ("+fmt(a.q)+" "+a.unidade+")").join(", ")}</p>
+<p class="hint">${r.itens.map(a=>esc(a.nome)).join(", ")}</p>
 <strong>${fmt(total)} g carboidratos</strong></div>`;
-}).join("")||"<p>Nenhum registro.</p>";
+}).join("")||"<p>Sem registros.</p>";
+let fim=new Date($("data").value+"T12:00:00"),pontos=[];
+for(let i=6;i>=0;i--){
+let d=new Date(fim);d.setDate(d.getDate()-i);
+let key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+let valor=lista.filter(r=>r.data===key).flatMap(r=>r.itens).reduce((s,a)=>s+a.carb,0);
+pontos.push({rotulo:String(d.getDate()),valor});
+}
+$("graficoSemana").innerHTML=grafico(pontos,"Carboidratos nos últimos sete dias");
+}
+function mostrarPerfis(){
+$("perfilAtivo").innerHTML=perfis.map(p=>`<option>${esc(p)}</option>`).join("");
+$("perfilAtivo").value=perfil;
+}
+function trocarPerfil(){
+perfil=$("perfilAtivo").value;gravar("perfil",perfil);
+mostrarDia();mostrarMetas();
+}
+function criarPerfil(){
+let p=$("novoPerfil").value.trim();
+if(!p||perfis.includes(p))return alert("Escolha outro nome.");
+perfis.push(p);perfil=p;
+gravar("perfis",perfis);gravar("perfil",perfil);
+$("novoPerfil").value="";mostrarPerfis();mostrarDia();
 }
 function exportar(){
-let linhas=["Data;Refeição;Alimento;Quantidade;Unidade;Carboidratos"];
-for(let r of registros)for(let a of r.itens)
-linhas.push([r.data,r.tipo,a.nome,fmt(a.q),a.unidade,fmt(a.carb)].join(";"));
+let lista=registros.filter(r=>r.perfil===perfil);
+let linhas=["Data;Refeição;Alimento;Quantidade;Unidade;Carboidratos;Calorias"];
+for(let r of lista)for(let a of r.itens)
+linhas.push([r.data,r.tipo,a.nome,fmt(a.q),a.unidade,fmt(a.carb),a.kcal===null?"":fmt(a.kcal)].join(";"));
 let blob=new Blob(["\uFEFF"+linhas.join("\r\n")],{type:"text/csv;charset=utf-8"});
-let url=URL.createObjectURL(blob);
-let link=document.createElement("a");
-link.href=url;link.download="CarbCare.csv";link.click();
+let url=URL.createObjectURL(blob),link=document.createElement("a");
+link.href=url;link.download="CarbCare_V2_2.csv";link.click();
 setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function apagar(){
-if(!confirm("Apagar todos os registros de teste?"))return;
-["registros","glicemias","extras"].forEach(k=>localStorage.removeItem("cc21_"+k));
-registros=[];glicemias=[];extras=[];
-mostrarHistorico();mostrarDia();
+if(!confirm("Apagar todos os dados de teste desta versão?"))return;
+Object.keys(localStorage).filter(k=>k.startsWith("cc22_")).forEach(k=>localStorage.removeItem(k));
+location.reload();
 }
-mostrarDia();
-mostrarBiblioteca();
+mostrarDia();mostrarBiblioteca();mostrarPerfis();
 </script>
 </body>
 </html>
